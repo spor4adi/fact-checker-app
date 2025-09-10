@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+fact_checker_model.pkl
+vectorizer.pkl
+.DS_Store
+.vscode/

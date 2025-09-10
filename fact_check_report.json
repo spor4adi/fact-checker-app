@@ -1,0 +1,117 @@
+{
+  "timestamp": "2025-09-10T23:35:27.465505",
+  "total_posts_analyzed": 6,
+  "credible_posts": 3,
+  "suspicious_posts": 3,
+  "average_credibility_score": 0.52,
+  "detailed_results": [
+    {
+      "text": "Scientists at Harvard University published a new study on climate change in Nature journal",
+      "is_credible": true,
+      "credibility_score": 0.99,
+      "confidence": 0.99,
+      "features": {
+        "char_count": 90,
+        "word_count": 14,
+        "polarity": 0.13636363636363635,
+        "subjectivity": 0.45454545454545453,
+        "suspicious_keywords": 0,
+        "caps_ratio": 0.044444444444444446,
+        "exclamation_count": 0
+      },
+      "warning_flags": []
+    },
+    {
+      "text": "BREAKING: Secret government files LEAKED! They don't want you to know the TRUTH!",
+      "is_credible": false,
+      "credibility_score": 0.04,
+      "confidence": 0.96,
+      "features": {
+        "char_count": 80,
+        "word_count": 13,
+        "polarity": -0.625,
+        "subjectivity": 0.7,
+        "suspicious_keywords": 3,
+        "caps_ratio": 0.2625,
+        "exclamation_count": 2
+      },
+      "warning_flags": [
+        "Contains suspicious keywords"
+      ]
+    },
+    {
+      "text": "Local hospital reports successful heart surgery using robotic assistance",
+      "is_credible": true,
+      "credibility_score": 0.97,
+      "confidence": 0.97,
+      "features": {
+        "char_count": 72,
+        "word_count": 9,
+        "polarity": 0.21666666666666667,
+        "subjectivity": 0.3833333333333333,
+        "suspicious_keywords": 0,
+        "caps_ratio": 0.013888888888888888,
+        "exclamation_count": 0
+      },
+      "warning_flags": [
+        "Very short post - limited context"
+      ]
+    },
+    {
+      "text": "MIRACLE CURE doctors don't want you to see! This ONE WEIRD TRICK will shock you!",
+      "is_credible": false,
+      "credibility_score": 0.04,
+      "confidence": 0.96,
+      "features": {
+        "char_count": 80,
+        "word_count": 15,
+        "polarity": -0.625,
+        "subjectivity": 1.0,
+        "suspicious_keywords": 1,
+        "caps_ratio": 0.3125,
+        "exclamation_count": 2
+      },
+      "warning_flags": [
+        "Contains suspicious keywords",
+        "Excessive use of capital letters",
+        "Highly subjective language"
+      ]
+    },
+    {
+      "text": "The stock market closed higher today following positive economic indicators",
+      "is_credible": true,
+      "credibility_score": 0.98,
+      "confidence": 0.98,
+      "features": {
+        "char_count": 75,
+        "word_count": 10,
+        "polarity": 0.11545454545454545,
+        "subjectivity": 0.28909090909090907,
+        "suspicious_keywords": 0,
+        "caps_ratio": 0.013333333333333334,
+        "exclamation_count": 0
+      },
+      "warning_flags": []
+    },
+    {
+      "text": "URGENT: This common household item is actually DEADLY POISON!",
+      "is_credible": false,
+      "credibility_score": 0.1,
+      "confidence": 0.9,
+      "features": {
+        "char_count": 61,
+        "word_count": 9,
+        "polarity": -0.275,
+        "subjectivity": 0.45,
+        "suspicious_keywords": 1,
+        "caps_ratio": 0.3114754098360656,
+        "exclamation_count": 1
+      },
+      "warning_flags": [
+        "Contains suspicious keywords",
+        "Excessive use of capital letters",
+        "Very short post - limited context"
+      ]
+    }
+  ]
+}

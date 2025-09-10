@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI Fact Checker</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #09052eff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      max-width: 700px;
+      width: 100%;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2d3436;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    textarea, button {
+      width: 100%;
+      box-sizing: border-box; /* ensures padding + border are included in width */
+    }
+
+    textarea {
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      padding: 12px;
+      font-size: 16px;
+      resize: vertical;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    textarea:focus {
+      border-color: #4e73df;
+      box-shadow: 0 0 5px rgba(78,115,223,0.5);
+    }
+
+    button {
+      background: #4e73df;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #2e59d9;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f8f9fc;
+      border: 1px solid #e3e6f0;
+      font-size: 15px;
+      white-space: pre-wrap;
+    }
+
+    .credible {
+      border-left: 6px solid #1cc88a;
+    }
+
+    .suspicious {
+      border-left: 6px solid #e74a3b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📰 AI Fact Checker</h1>
+    <textarea id="text" rows="6" placeholder="Paste a social media post or news snippet here..."></textarea>
+    <button id="check">Check Credibility</button>
+    <div id="out" class="result" style="display:none;"></div>
+  </div>
+
+  <script>
+    document.getElementById('check').onclick = async () => {
+      const text = document.getElementById('text').value.trim();
+      if (!text) {
+        alert("Please enter some text!");
+        return;
+      }
+      const res = await fetch('/analyze', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({text})
+      });
+      const data = await res.json();
+
+      const out = document.getElementById('out');
+      out.style.display = "block";
+
+      if (data.success) {
+        const r = data.result;
+        let status = r.is_credible ? "✅ CREDIBLE" : "❌ SUSPICIOUS";
+        out.className = r.is_credible ? "result credible" : "result suspicious";
+        out.innerHTML = `
+          <strong>${status}</strong><br><br>
+          <b>Credibility Score:</b> ${(r.credibility_score*100).toFixed(1)}%<br>
+          <b>Confidence:</b> ${(r.confidence*100).toFixed(1)}%<br>
+          <b>Text:</b> ${r.text}<br>
+          ${r.warning_flags.length ? `<br><b>⚠️ Warnings:</b> ${r.warning_flags.join(", ")}` : ""}
+        `;
+      } else {
+        out.className = "result suspicious";
+        out.innerHTML = "Error: " + (data.error || "Something went wrong.");
+      }
+    };
+  </script>
+</body>
+</html>
