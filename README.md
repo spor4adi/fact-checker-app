@@ -1,18 +1,18 @@
-# 📰 AI Fact Checker Web App
+# AI Fact Checker Web App
 
 A Flask-based web application that uses **Machine Learning (Random Forest + TF-IDF)** and **NLP (TextBlob, NLTK)** to analyze social media posts or news snippets for credibility.
 
-## 🚀 Features
+## Features
 - Single post analysis with credibility score & confidence.
 - Warning flags for suspicious patterns (clickbait, all caps, etc.).
 - Clean modern UI with results highlighting.
 
-## 🛠 Tech Stack
+## Tech Stack
 - Python, Flask
 - scikit-learn, TextBlob, NLTK
 - HTML/CSS/JS (custom UI)
 
-## ▶️ Run Locally
+## Run Locally
 ```bash
 git clone https://github.com/YOUR_USERNAME/fact-checker-app.git
 cd fact-checker-app
